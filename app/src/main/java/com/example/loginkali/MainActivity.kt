@@ -23,6 +23,7 @@ import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.RadioButton
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
@@ -98,7 +99,7 @@ fun TampilForm(cobaViewModel: CobaViewModel = viewModel()){
         singleLine = true,
         shape = MaterialTheme.shapes.large,
         modifier = Modifier.fillMaxWidth(),
-        label = {Text(text = "Nama Lengkap") },
+        label = {Text(text = "Username") },
         onValueChange = {
             textNama = it
         }
@@ -109,7 +110,7 @@ fun TampilForm(cobaViewModel: CobaViewModel = viewModel()){
         keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
         shape = MaterialTheme.shapes.large,
         modifier = Modifier.fillMaxWidth(),
-        label = { Text(text = "Telpon") },
+        label = { Text(text = "Telepon") },
         onValueChange = {
             textTlp = it
         }
@@ -119,7 +120,31 @@ fun TampilForm(cobaViewModel: CobaViewModel = viewModel()){
         singleLine = true,
         shape = MaterialTheme.shapes.large,
         modifier = Modifier.fillMaxWidth(),
+        label = {Text(text = "Email")},
+        onValueChange = {
+            textAlmt = it
+        }
+    )
+    OutlinedTextField(
+        value = textAlmt,
+        singleLine = true,
+        shape = MaterialTheme.shapes.large,
+        modifier = Modifier.fillMaxWidth(),
         label = {Text(text = "Alamat")},
+        onValueChange = {
+            textAlmt = it
+        }
+    )
+    TextField(
+        value = textAlmt,
+        label = {Text(text = "Jenis Kelamin:")},
+        onValueChange = {
+            textAlmt = it
+        }
+    )
+    TextField(
+        value = textAlmt,
+        label = {Text(text = "Status:")},
         onValueChange = {
             textAlmt = it
         }
@@ -135,7 +160,7 @@ fun TampilForm(cobaViewModel: CobaViewModel = viewModel()){
         }
     ) {
         Text(
-            text = stringResource(R.string.submit),
+            text = stringResource(R.string.register),
             fontSize = 16.sp
         )
     }
@@ -165,6 +190,7 @@ fun SelectJK(
                         onSelectionChanged(item)
                     }
                 ),
+
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 RadioButton(
@@ -206,7 +232,17 @@ fun TextHasil (namanya: String, telponnya: String, jenisnya: String, alamatnya: 
                 .padding(horizontal = 10.dp, vertical = 5.dp)
         )
         Text(
+            text = "Status : " + alamatnya,
+            modifier = Modifier
+                .padding(horizontal = 10.dp, vertical = 5.dp)
+        )
+        Text(
             text = "Alamat : " + alamatnya,
+            modifier = Modifier
+                .padding(horizontal = 10.dp, vertical = 5.dp)
+        )
+        Text(
+            text = "Email : " + alamatnya,
             modifier = Modifier
                 .padding(horizontal = 10.dp, vertical = 5.dp)
         )
