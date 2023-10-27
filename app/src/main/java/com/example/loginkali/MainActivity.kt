@@ -198,6 +198,7 @@ fun SelectJK(
                     onClick = {
                         selectedValue = item
                         onSelectionChanged(item)
+
                     }
                 )
                 Text(item)
